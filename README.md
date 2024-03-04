@@ -1,3 +1,5 @@
+## AdminX
+
 A UI enterprise admin dashboard with Typescript, Material UI, Nivo Charts, Formik, Yup, FullCalendar, and Data Grid.
 
 #### Installation

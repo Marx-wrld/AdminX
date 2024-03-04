@@ -1,4 +1,4 @@
-Building an enterprise admin dashboard with React, Material UI, Nivo Charts, Formik, Yup, FullCalendar, and Data Grid.
+A UI enterprise admin dashboard with Typescript, Material UI, Nivo Charts, Formik, Yup, FullCalendar, and Data Grid.
 
 #### Installation
 - Clone or download the repo - [https://github.com/Marx-wrld/Enterprise-Admin.git](https://github.com/Marx-wrld/Enterprise-Admin.git)

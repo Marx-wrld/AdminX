@@ -1,6 +1,9 @@
-import { createContext, useState } from "react";
+import { ColorModeContext, useMode } from "./theme";
+import { Theme } from "@mui/material/styles";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { Routes, Route } from 'react-router-dom';
+import {
+  Routes, Route,
+} from 'react-router-dom';
 import Topbar from "./scenes/global/Topbar";
 import Dashboard from "./scenes/dashboard";
 import Sidebar from "./scenes/global/Sidebar";
@@ -14,27 +17,14 @@ import Pie from "./scenes/pie";
 import FAQ from "./scenes/faq";
 import Geography from "./scenes/geography";
 import Calendar from "./scenes/calendar";
-import { theme as defaultTheme, ColorMode } from "./theme";
-
-interface ColorModeContextType {
-  colorMode: ColorMode;
-  toggleColorMode: () => void;
-}
-
-export const ColorModeContext = createContext<ColorModeContextType>({
-  colorMode: "light",
-  toggleColorMode: () => {},
-});
+import { ReactNode } from "react";
 
 function App() {
-  const [colorMode, setColorMode] = useState<ColorMode>("light");
-  const toggleColorMode = () => {
-    setColorMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
-  };
+  const [theme, colorMode] = useMode() as [Theme, string]; // Destructure the array and assign correct types
 
   return (
-    <ColorModeContext.Provider value={{ colorMode, toggleColorMode }}>
-      <ThemeProvider theme={defaultTheme}>
+    <ColorModeContext.Provider value={{ toggleColorMode: () => {} }}> {/* Update the type of the value prop */}
+      <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="app">
           <Sidebar />
